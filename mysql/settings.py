@@ -26,6 +26,14 @@ SECRET_KEY = 'django-insecure-hdd)u6vj6i5j!@a3r%ksp+zgcz%c%w+#z%s5l!@(@#g8@pmkz%
 DEBUG = True
 
 ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = [
+#     "heylon.ru",
+#     "www.heylon.ru",
+#     "test.heylon.ru",
+#     "193.164.17.141",
+#     "127.0.0.1",
+#     "localhost",
+# ]
 
 
 # Application definition
@@ -37,6 +45,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'main_page',
+    'django_filters',
+    'rest_framework',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.discord',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
@@ -75,8 +91,12 @@ WSGI_APPLICATION = 'mysql.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql', 
+        'NAME': 'heylon',
+        'USER': 'heylon',
+        'PASSWORD': 'OYrmfyg4DAVY',
+        'HOST': '89.117.54.147',   # Or an IP Address that your DB is hosted on
+        'PORT': '3306',
     }
 }
 
@@ -103,11 +123,13 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ru'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Moscow'
 
 USE_I18N = True
+
+USE_L10N = True
 
 USE_TZ = True
 
